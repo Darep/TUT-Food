@@ -1,0 +1,32 @@
+
+html,body,div,p,h1,h2,h3,h4,h5,ul,ol,li,span {
+	margin:0;
+	padding:0;
+	-webkit-text-size-adjust:none; /* do not adjust the text size when rotating */
+}
+
+html, body { height:418px; }
+body { font:14px/1.5 Helvetica,sans-serif; }
+
+.header {
+    background: url(toolbar.png) #6d84a2 repeat-x;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	border-bottom: 1px solid #2d3642;
+    border-top: 1px solid #6d84a2;
+	height:45px;
+	padding:12px;
+}
+h1 { color:#fff; font-size:20px; line-height:1em; text-align:center; text-shadow:0px -1px 0px rgba(0, 0, 0, 0.5); }
+
+#wrap { height:100%; overflow:hidden; position:relative; width:320px; } /* iPhone-specific */
+#menus { height:100%; position:relative; width:32766px; }
+#menus > li { display:inline-block; float:left; overflow:hidden; width:320px; }
+.food li { border-bottom:1px solid #e0e0e0; font:bold 16px/1.5 Helvetica,sans-serif; list-style-type:none; padding:12px 10px; width:300px; word-wrap:break-word; }
+.food .empty { border:0; color:#999; font-size:0.85em; font-weight:400; text-align:center; padding:28px 0 0; } 
+
+#switcher { clear:both; display:block; font-size:2.8em; line-height:1.0em; margin-top:-48px; padding:8px 0; text-align:center; z-index:2; }
+#blah { display:inline-block; margin:0 auto; }
+#switcher span { color:#aaa; display:inline-block; float:left; height:32px; width:18px; }
+#switcher .act { color:#000; }
