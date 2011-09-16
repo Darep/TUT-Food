@@ -1,10 +1,10 @@
     <section class="menu">
-        <h2>${name}</h2>
-        {{if menu.length == 0}}
+        <h2>${nimi}</h2>
+        {{if ruoka.length == 0}}
             <p class="none">Ruokalistaa ei saatavilla.</p>
         {{else}}
             <ul>
-                {{each(index, food) menu}}
+                {{each(index, food) ruoka}}
                     <li>${food}</li>
                 {{/each}}
             </ul>

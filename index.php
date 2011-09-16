@@ -4,13 +4,14 @@
  *
  */
 
-ini_set('default_charset', 'iso-8859-15');
+$use_loader = false;
+$template_dir = './templates';
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="iso-8859-15" />
+    <meta charset="utf-8" />
 	<title>Ruokalistat</title>
 	<meta name="description" content="TTY:n ruokalistat koskettelulaitteille" /> 
     
@@ -58,24 +59,62 @@ ini_set('default_charset', 'iso-8859-15');
     </div>
 </div>
 
+<?php
+	// print the jquery templates
+	
+	$iterator = new DirectoryIterator($template_dir);
+	
+	foreach ($iterator as $file)
+	{
+		if ($file->isFile())
+		{
+			$name = $file->getBasename('.html');
+			?>
+
+<script type="text/html" id="<?php echo $name ?>">
+<?php echo file_get_contents($file->getPathname()) ?>
+</script>
+
+			<?php
+		}
+	}
+	
+?>
+
 <script type="text/javascript">
     (function () {
+        var x = document.getElementsByTagName('style')[0];
+        var z = document.getElementsByTagName('script')[0];
+        
         var c = document.createElement('link');
         c.rel = 'stylesheet';
         c.type = 'text/css';
         c.href = 'css/style.css';
 
-        var x = document.getElementsByTagName('style')[0];
         x.parentNode.insertBefore(c, x);
         
-        return;
+        var d = document.createElement('link');
+        d.rel = 'stylesheet';
+        d.type = 'text/css';
+        d.href = 'css/480.css';
+        d.media = 'only screen and (min-width: 480px)';
+
+        x.parentNode.insertBefore(d, x);
+
+        var e = document.createElement('link');
+        e.rel = 'stylesheet';
+        e.type = 'text/css';
+        e.href = 'css/retina.css';
+        e.media = 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)';
+
+        x.parentNode.insertBefore(e, x);
         
+<?php if ($use_loader) : ?>
         var j = document.createElement('script');
         j.type = 'text/javascript'; 
         j.async = false;
         j.src = 'js/jquery-1.6.1.min.js';
         
-        var z = document.getElementsByTagName('script')[0];
         z.parentNode.insertBefore(j, z);
         
         var k = document.createElement('script');
@@ -85,34 +124,41 @@ ini_set('default_charset', 'iso-8859-15');
 
         z.parentNode.insertBefore(k, z);
 
+        var r = document.createElement('script');
+        r.type = 'text/javascript'; 
+        r.async = false;
+        r.src = 'js/Ruoka/Progressbar.js';
+        
+        z.parentNode.insertBefore(r, z);
+        
         var s = document.createElement('script');
         s.type = 'text/javascript'; 
         s.async = false;
-        s.src = 'js/application.js';
+        s.src = 'js/Ruoka/Application.js';
         
         z.parentNode.insertBefore(s, z);
         
         s.onload = function () {
             setTimeout(function () {
-                // jQuery and application.js should be loaded now
+                // libraries and Application.js should be loaded now
                 Ruoka.Application.init();
             }, 0);
         }
     })();
     
-    
-    var SLOW_TIMEOUT = 10000,
-        FAIL_TIMEOUT = 20000;
-    
     (function () {
-        var element = document.getElementById('boot');
+        var SLOW_TIMEOUT = 10000,
+        	FAIL_TIMEOUT = 20000,
+        	element = document.getElementById('boot');
         setTimeout(function() {
             element.className += " slow";
             setTimeout(function() { element.className += " fail"; }, FAIL_TIMEOUT);
         }, SLOW_TIMEOUT);
     })();
 </script>
-
+<?php else : ?>
+})();
+</script>
 <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="js/Ruoka/Progressbar.js"></script>
@@ -120,6 +166,7 @@ ini_set('default_charset', 'iso-8859-15');
 <script type="text/javascript">
     Ruoka.Application.init();
 </script>
+<?php endif; ?>
 
 <!-- Google Analytics -->
 <script type="text/javascript">
