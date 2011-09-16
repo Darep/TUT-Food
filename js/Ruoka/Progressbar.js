@@ -41,11 +41,10 @@
 	    },
 	
 	    done: function (updateTime) {
-	        var progressbar = this.container.find('#progressbar'),
-	            bar = progressbar.find('span');
+	        var progressbar = this.container.find('#progressbar');
 	        
 	        var data = {
-	            lastupdate: new Date(updateTime)
+	            lastupdate: new Date(updateTime*1000)
 	        };
 	        
 	        render('statusbarTemplate', data, function (res) {
