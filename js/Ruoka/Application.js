@@ -37,7 +37,6 @@
 	            url: 'act.php?refresh',
 	            type: 'GET',
 	            success: function (data) {
-	            	console.log(data);
 	                self.renderMenus(data);
 	            }
 	        });
@@ -61,6 +60,8 @@
 	        });
 	        
 	        Ruoka.Progressbar.done(data.time_updated);
+	        
+	        Ruoka.UI.init(element);
 	    }
 	};
 	
