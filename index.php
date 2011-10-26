@@ -87,7 +87,7 @@ $template_dir = './templates';
 <script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="js/modernizr.custom.39256.js"></script>
 <script type="text/javascript" src="js/Ruoka/Progressbar.js"></script>
-<script type="text/javascript" src="js/Ruoka/UI.js"></script>
+<script type="text/javascript" src="js/Ruoka/TouchUI.js"></script>
 <script type="text/javascript" src="js/Ruoka/Application.js"></script>
 <script type="text/javascript">
     Ruoka.Application.init();

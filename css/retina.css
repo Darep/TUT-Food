@@ -34,3 +34,17 @@ h1 {
 	#menus .menu {
 		
 	}
+
+
+/* PAGINATION */
+.pagination {
+	text-align:center;
+}
+	.pagination b {
+		color:#aaa;
+		font-family:'Segoe UI', sans-serif;
+		font-size:16px;
+	}
+	.pagination .act {
+		color:#fff;
+	}

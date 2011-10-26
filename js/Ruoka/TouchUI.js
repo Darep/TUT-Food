@@ -1,13 +1,16 @@
 /*!
- * Ruoka UI
+ * Ruoka Touch UI
  */
 
 (function () {	
 	var Ruoka = window.Ruoka || {};
 	
-	Ruoka.UI = {
+	Ruoka.TouchUI = {
 		element: $('body'),
+		container: $('#container'),
 		wrapper: $('<div class="menusWrap"></div>'),
+		pagination: $('<div class="pagination"></div>'),
+		
 		page: 0,
 		pages: 0,
 		pageWidth: 0,
@@ -18,7 +21,7 @@
 		startX: 0,
 		startY: 0,
 		startTime: 0,
-			
+		
 		init: function (element) {
 			if (!Modernizr.touch) return;
 			
@@ -53,8 +56,10 @@
 				position: 'relative',
 				marginLeft: '0',
 				overflow: 'hidden',
-				width: (windowWidth * menus.length) + 'px'				
+				width: (windowWidth * menus.length) + 'px'
 			});
+			
+			this.wrapper.css('-webkit-transition', 'margin 320ms ease-out');
 			
 			menus.css({
 				display: 'inline-block',
@@ -64,11 +69,18 @@
 			
 			this.pages = menus.length;
 			this.pageWidth = windowWidth;
+
+			// add pagination
+			for (var i = 0; i < this.pages; i++) {
+				this.pagination.append('<b>*</b>');
+			}
+			this.container.append(this.pagination);
+			
+			this.pagination.find(':first').addClass('act');
 		},
 		
 		// movePage
 		onSwipe: function (e, direction) {
-			console.log('swipe');
 			
 			if (direction == 1 && this.page == (this.pages - 1)) return;
 			if (direction == -1 && this.page == 0) return;
@@ -79,6 +91,10 @@
 			this.wrapper.css({
 				marginLeft: -amount
 			});
+			
+			var balls = this.pagination.children();
+			balls.removeClass('act');
+			$(balls.get(this.page)).addClass('act');
 		},
 		
 		onTouchStart: function (e) {
@@ -149,4 +165,5 @@
 	};
 	
 	window.Ruoka = Ruoka;
+	
 })();

@@ -61,7 +61,7 @@
 	        
 	        Ruoka.Progressbar.done(data.time_updated);
 	        
-	        Ruoka.UI.init(element);
+	        Ruoka.TouchUI.init(element);
 	    }
 	};
 	
