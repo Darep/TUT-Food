@@ -1,1 +1,7 @@
-Yay!
+TUT-Food
+========
+
+PHP + JavaScript web app for displaying the lunch menus of Tampere University of Technology lunch restaurants.
+Part of my bachelor's thesis.
+
+Requirements: Uses TUT-FoodService to retrieve the food lists as JSON.
