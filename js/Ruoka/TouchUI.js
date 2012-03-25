@@ -40,36 +40,45 @@
 		},
 		
 		initSliding: function (element) {
+			// add an overflow wrapper
 			this.wrapper.html(element.html());
 			element.empty();
 			element.append(this.wrapper);
 				
-			var menus = this.wrapper.children(),
-				windowWidth = window.innerWidth;
+			var windowWidth = window.innerWidth;
+			this.pageWidth = windowWidth;
 			
 			element.css({
 				overflow: 'hidden',
 				width: windowWidth + 'px'
 			});
 			
+			var menus = this.wrapper.children();
+			this.pages = menus.length;
+
 			this.wrapper.css({
 				position: 'relative',
 				marginLeft: '0',
 				overflow: 'hidden',
 				width: (windowWidth * menus.length) + 'px'
 			});
-			
 			this.wrapper.css('-webkit-transition', 'margin 320ms ease-out');
 			
-			menus.css({
-				display: 'inline-block',
-				float: 'left',
-				width: windowWidth + 'px'
+			// modify menu DOM
+			menus.each(function () {
+				var menu = $(this);
+
+				var menuWrapper = $('<div></div>');
+				menuWrapper.insertBefore(menu)
+					.append(menu);
+
+				menuWrapper.css({
+					display: 'inline-block',
+					float: 'left',
+					width: windowWidth + 'px'
+				});
 			});
 			
-			this.pages = menus.length;
-			this.pageWidth = windowWidth;
-
 			// add pagination
 			for (var i = 0; i < this.pages; i++) {
 				this.pagination.append('<b>*</b>');

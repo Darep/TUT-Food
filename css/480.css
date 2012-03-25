@@ -2,36 +2,3 @@
  * 480
  */ 
 
-/*
- 1.ROOT
- 2.HEADINGS
- 3.FOOD MENUS
-*/
-
-
-/* 1.ROOT */
-html, body {
-	height:100%;
-	margin:0;
-	padding:0;
-}
-body {
-	background:#000;
-	color:#fff;
-	overflow:hidden;
-}
-
-
-/* 2.HEADINGS */
-h1 {
-	margin:0;
-}
-
-
-/* 3.FOOD MENUS */
-#menus {
-	
-}
-	#menus .menu {
-		
-	}

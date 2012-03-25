@@ -1,0 +1,78 @@
+/*!
+ * 320
+ */ 
+
+/*
+	1.ROOT
+	2.HEADINGS
+	4.FOOD MENUS
+*/
+
+
+/* 1.ROOT */
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+body {
+	background:#000;
+	color:#fff;
+	overflow:hidden;
+}
+
+
+/* 2.HEADINGS */
+h1 {
+	display:none;
+	font-size:18px;
+	margin:0;
+}
+
+
+/* 3.STATUSBAR */
+#statusbar p {
+	font-size:12px;
+}
+
+
+/* 4.FOOD MENUS */
+#menus {
+	
+}
+	#menus .menu {
+		background:#314561;
+		border:3px solid #64738a;
+		border-radius:10px;
+		margin:0 10px;
+		padding:10px;
+		text-shadow:#000 0px 2px 0px;
+	}
+		.menu h2 {
+			font-size:18px;
+			margin:0 0 10px;
+		}
+		.menu ul {
+			list-style:none;
+			padding:0;
+			margin:0 -10px;
+		}
+			.menu li {
+				background:#435c80;
+				border-top:1px solid #32435c;
+				padding:8px 5px;
+			}
+
+
+/* PAGINATION */
+.pagination {
+	text-align:center;
+}
+	.pagination b {
+		color:#aaa;
+		font-family:'Segoe UI', sans-serif;
+		font-size:16px;
+	}
+	.pagination .act {
+		color:#fff;
+	}

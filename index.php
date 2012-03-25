@@ -7,13 +7,15 @@
 $use_loader = false;
 $template_dir = './templates';
 
+define('DEBUG', false);
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
 	<title>Ruokalistat</title>
-	<meta name="description" content="TTY:n ruokalistat koskettelulaitteille" /> 
+	<meta name="description" content="TTY:n ruokalistat" /> 
     
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-precomposed.png" />
@@ -45,7 +47,7 @@ $template_dir = './templates';
         }
     </style>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/480.css" media="only screen and (min-width: 480px)">
+	<link rel="stylesheet" type="text/css" href="css/320.css" media="only screen and (min-width: 320px) and (max-width:640px)">
 	<link rel="stylesheet" type="text/css" href="css/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">
 </head>  
 <body onorientationchange="Ruoka.UI.updateOrientation()">
@@ -83,12 +85,14 @@ $template_dir = './templates';
 	
 ?>
 
-<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
-<script type="text/javascript" src="js/modernizr.custom.39256.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<?php if (DEBUG) : ?>
 <script type="text/javascript" src="js/Ruoka/Progressbar.js"></script>
 <script type="text/javascript" src="js/Ruoka/TouchUI.js"></script>
 <script type="text/javascript" src="js/Ruoka/Application.js"></script>
+<?php else : ?>
+<script type="text/javascript" src="/min/b=js/Ruoka&amp;f=Progressbar.js,TouchUI.js,Application.js"></script>
+<?php endif; ?>
 <script type="text/javascript">
     Ruoka.Application.init();
 </script>
