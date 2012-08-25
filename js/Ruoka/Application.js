@@ -19,31 +19,50 @@
             var menuRequest = Ruoka.Api.fetchMenus();
             menuRequest.success(function (data) {
                 this.addMenus(data);
-                this.render(data);
-                //Ruoka.TouchUI.init(element);
+                var render = this.render(data);
+
+                render.done(function () {
+                    if ( Modernizr.csstransforms ) {
+                        Ruoka.TouchUI.init( this.container.find('.menus') );
+                    }
+                }.bind(this))
+                .fail(function () {
+                    // TODO: this
+                });
+
             }.bind(this));
         },
 
         render: function () {
+            var defer = $.Deferred();
+
             // fade the loading away
             this.container.find('#boot').fadeOut('slow', function () {
                 var renderedTemplate = this.template.render(this.model).children();
                 this.container.html(renderedTemplate);
+
+                defer.resolve();
             }.bind(this));
+
+            return defer.promise();
         },
 
         addMenus: function (data) {
             var menus = [];
             var self = this;
 
-            // Only show Juvenes menus for now
+            // Render menus to the template
             $.each(data.menus.juvenes, function () {
                 var model = this;
                 var menu = new Ruoka.Menu({
                     model: model
                 });
-                self.template.find('.menus > ul').append(menu.render().el);
+                var menuEl = menu.render().el;
+                menuEl.hide();
+                menus.push(menuEl);
             });
+            self.template.find('.menus > ul').append(menus);
+            $(menus[0]).show();
         }
     };
 

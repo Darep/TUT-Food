@@ -89,6 +89,8 @@ sub { bottom: -0.25em; }
 
 /* 1.BASE
 ----------------------------------------------------------------------------- */
+body { font-family: 'Helvetica Neue', HelveticaNeue, sans-serif; }
+
 ul { list-style: none; padding: 0; }
 
 a { border-bottom: 1px solid #ced2df; color: #17c; text-decoration: none; }
@@ -101,3 +103,9 @@ header { display: none; }
 
 /* 3.MENUS
 ----------------------------------------------------------------------------- */
+.menu { padding: 10px; }
+
+.menu-wrap { background: #f67280; border: 2px solid #ff939e; font-size: 14px; padding: 10px; border-radius: 12px; }
+.menu-wrap h2 { font-size: 14px; text-align: center; }
+
+.settings { display: none; }

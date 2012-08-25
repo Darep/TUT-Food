@@ -78,6 +78,7 @@
     <script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="js/lib/transparency.min.js"></script>
     <script type="text/javascript" src="js/lib/date.format.js"></script>
+    <script type="text/javascript" src="js/lib/swipe.js"></script>
     <script type="text/javascript" src="js/Ruoka/Application.js"></script>
     <script type="text/javascript" src="js/Ruoka/TouchUI.js"></script>
     <script type="text/javascript" src="js/Ruoka/Menu.js"></script>

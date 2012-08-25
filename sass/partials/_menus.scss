@@ -1,3 +1,22 @@
 
 /* 3.MENUS
 ----------------------------------------------------------------------------- */
+.menu {
+    padding:10px;
+}
+.menu-wrap {
+    background:#f67280;
+    border:2px solid #ff939e;
+    font-size:14px;
+    padding:10px;
+    border-radius:12px;
+
+    h2 {
+        font-size:14px;
+        text-align:center;
+    }
+}
+
+.settings {
+    display:none;
+}

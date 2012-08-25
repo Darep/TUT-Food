@@ -20,12 +20,12 @@
 
     Ruoka.Menu.prototype.render = function () {
         var data = {
-            title: this.model.nimi,
+            name: this.model.nimi,
             foods: []
         };
 
         $.each(this.model.ruoka, function () {
-            data.foods.push({ name: this.toString() });
+            data.foods.push({ title: this.toString() });
         });
 
         this.el = this.template.render(data);
