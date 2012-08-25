@@ -1,0 +1,11 @@
+{
+    "author": "Antti-Jussi Kovalainen",
+    "name": "tut-food",
+    "description": "TUT Food menus",
+    "version": "0.0.2",
+    "homepage": "http://ruoka.ajk.im/",
+    "dependencies": {
+        "grunt-css": "~0.2.1",
+        "grunt-compass": "~0.2.15"
+    }
+}

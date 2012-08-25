@@ -1,84 +1,56 @@
 /*!
- * Ruoka main application logic
+ * TUT-Food main application logic
  */
 
-(function () {
-	var Ruoka = window.Ruoka || [];
-	
-	Ruoka.Application = {
-	    container: null,
-	    
-	    init: function () {
-	        var self = this;
-	        this.container = $('#container');
-	        
-	        // hide boot
-	        this.container.empty().hide();
-	        
-	        // add the base and start fetching data
-	        render('baseTemplate', null, function (res) {
-	            self.container.append(res);
-	            self.container.fadeIn('fast');
-	            
-	            self.refresh();
-	        });
-	    },
-	    
-	    refresh: function () {
-	        var statusbar = this.container.find('#statusbar');
-	        statusbar.addClass('loading');
-	        Ruoka.Progressbar.start(statusbar, 2);
-	        this.getMenusFromServer();
-	    },
-	    
-	    getMenusFromServer: function () {
-	        var self = this;
-	        $.ajax({
-	            url: 'act.php?refresh',
-	            type: 'GET',
-	            success: function (data) {
-	                self.renderMenus(data);
-	            }
-	        });
-	    },
-	    
-	    renderMenus: function (data) {
-	        Ruoka.Progressbar.move();
-	        
-	        var element = $('#menus');
-	        
-	        var self = this;
-	        
-	        $.each(data.menus, function () {
-	        	$.each(this, function () {
-	        		if (!this.nimi) { return; }
-		            
-		            render('menuTemplate', this, function (res) {
-		                element.append(res);
-		            });
-	        	});
-	        });
-	        
-	        Ruoka.Progressbar.done(data.time_updated);
-	        
-	        Ruoka.TouchUI.init(element);
-	    }
-	};
-	
-	window.Ruoka = Ruoka;
-	
-})();
+(function (Ruoka, $, document, window, undefined) {
+    Ruoka.Application = Ruoka.Application || {};
+
+    Ruoka.Application = {
+        container: null,
+        model: {},
+        template: null,
+        templateBase: $('#templates .tmpl-base').detach(),
+
+        init: function () {
+            this.container = $('#app');
+            this.template = this.templateBase.clone();
+
+            // fetch the menus, show the menus and init the touch UI
+            var menuRequest = Ruoka.Api.fetchMenus();
+            menuRequest.success(function (data) {
+                this.addMenus(data);
+                this.render(data);
+                //Ruoka.TouchUI.init(element);
+            }.bind(this));
+        },
+
+        render: function () {
+            // fade the loading away
+            this.container.find('#boot').fadeOut('slow', function () {
+                var renderedTemplate = this.template.render(this.model).children();
+                this.container.html(renderedTemplate);
+            }.bind(this));
+        },
+
+        addMenus: function (data) {
+            var menus = [];
+            var self = this;
+
+            // Only show Juvenes menus for now
+            $.each(data.menus.juvenes, function () {
+                var model = this;
+                var menu = new Ruoka.Menu({
+                    model: model
+                });
+                self.template.find('.menus > ul').append(menu.render().el);
+            });
+        }
+    };
+
+}(window.Ruoka = window.Ruoka || {}, jQuery, document, window));
 
 
-/**
- * Render a template
- * 
- * @param templateFile Template to be rendered
- * @param data Data for the template
- * @param callback Callback function
- */
-function render(templateFile, data, callback) {
-	var template = $('#' + templateFile);
-	callback($.tmpl(template, data));
+// Return the template
+function getTemplate(sel) {
+    return $($('#templates ' + sel).html());
 }
-
