@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html<?php echo !DEBUG ? ' manifest="cache.manifest"' : '' ?>>
 <head>
     <meta charset="utf-8" />
     <title>TTY-Ruoka</title>
@@ -89,9 +89,9 @@
     <script type="text/javascript" src="js/lib/date.format.js"></script>
     <script type="text/javascript" src="js/lib/swipe.min.js"></script>
     <script type="text/javascript" src="js/Ruoka/Application.js"></script>
+    <script type="text/javascript" src="js/Ruoka/Api.js"></script>
     <script type="text/javascript" src="js/Ruoka/TouchUI.js"></script>
     <script type="text/javascript" src="js/Ruoka/Menu.js"></script>
-    <script type="text/javascript" src="js/Ruoka/Api.js"></script>
     <?php else : ?>
     <script type="text/javascript" src="js/main.min.js"></script>
     <?php endif; ?>

@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# 1.0
+NETWORK:
+/api.php
+CACHE:
+/
+/index.php
+/css/styles.css
+/img/bg.jpg
+/img/loader2.gif
+/js/main.min.js
