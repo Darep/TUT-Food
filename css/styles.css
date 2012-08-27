@@ -89,7 +89,7 @@ sub { bottom: -0.25em; }
 
 /* 1.BASE
 ----------------------------------------------------------------------------- */
-body { /* 14px/21px */ font: 87.5%/24px "Helvetica Neue", HelveticaNeue, sans-serif; }
+body { /* 14px/24px */ font: 87.5%/24px "Helvetica Neue", HelveticaNeue, sans-serif; }
 
 ul { list-style: none; padding: 0; }
 
