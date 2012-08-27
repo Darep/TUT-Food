@@ -2,7 +2,8 @@
 /* 1.BASE
 ----------------------------------------------------------------------------- */
 body {
-    font-family: 'Helvetica Neue', HelveticaNeue, sans-serif;
+    /* 14px/21px */
+    font:87.5%/24px 'Helvetica Neue', HelveticaNeue, sans-serif;
 }
 ul {
     list-style:none;
@@ -25,3 +26,8 @@ a:active, a:focus {
 header {
     display:none;
 }
+
+#app {
+    height:100%;
+}
+

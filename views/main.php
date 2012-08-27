@@ -10,7 +10,7 @@
 
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-precomposed.png" />
-    <link rel="apple-touch-startup-image" href="img/startup.png" />
+    <link rel="apple-touch-startup-image" href="img/bg.jpg" />
 
     <style type="text/css">
         /* styles for the loading page */
@@ -44,12 +44,21 @@
             position:absolute;
             top:50%;
             left:50%;
+            margin:-16px 0 0 -16px;
             height:32px;
             width:32px;
 
             text-indent:100%;
             overflow: hidden;
             white-space: nowrap;
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+            .loading {
+                background-size:16px 16px;
+                margin:-8px 0 0 -8px;
+                height:16px;
+                width:16px;
+            }
         }
     </style>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -78,7 +87,7 @@
     <script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="js/lib/transparency.min.js"></script>
     <script type="text/javascript" src="js/lib/date.format.js"></script>
-    <script type="text/javascript" src="js/lib/swipe.js"></script>
+    <script type="text/javascript" src="js/lib/swipe.min.js"></script>
     <script type="text/javascript" src="js/Ruoka/Application.js"></script>
     <script type="text/javascript" src="js/Ruoka/TouchUI.js"></script>
     <script type="text/javascript" src="js/Ruoka/Menu.js"></script>

@@ -89,7 +89,7 @@ sub { bottom: -0.25em; }
 
 /* 1.BASE
 ----------------------------------------------------------------------------- */
-body { font-family: 'Helvetica Neue', HelveticaNeue, sans-serif; }
+body { /* 14px/21px */ font: 87.5%/24px "Helvetica Neue", HelveticaNeue, sans-serif; }
 
 ul { list-style: none; padding: 0; }
 
@@ -101,11 +101,37 @@ a:active, a:focus { opacity: .7; }
 
 header { display: none; }
 
+#app { height: 100%; }
+
 /* 3.MENUS
 ----------------------------------------------------------------------------- */
-.menu { padding: 10px; }
+.menus { box-sizing: border-box; height: 100%; padding-bottom: 48px; }
+.menus > ul { height: 100%; }
 
-.menu-wrap { background: #f67280; border: 2px solid #ff939e; font-size: 14px; padding: 10px; border-radius: 12px; }
-.menu-wrap h2 { font-size: 14px; text-align: center; }
+.menu { display: inline-block !important; padding: 10px; }
+
+.menu-wrap { background: #f67280; background: #449c55; border: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 21px; position: relative; border-radius: 12px; }
+.menu-wrap .name { font-size: 16px; line-height: 46px; text-align: center; }
+
+.menu, .menu-wrap { box-sizing: border-box; height: 100%; }
 
 .settings { display: none; }
+
+.foods { overflow: auto; -webkit-overflow-scrolling: touch; }
+.foods li { line-height: 22px; padding: 12px 10px 12px 9%; position: relative; }
+.foods li:last-child { border: 0; box-shadow: none; padding-bottom: 0; }
+.foods li::before { background-color: #f1f1f1; content: ""; height: 6px; margin-top: 0.666em; margin-right: 0.666em; position: absolute; right: 91%; width: 6px; border-radius: 14px; }
+
+.menu-wrap .name, .foods li { border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2); }
+
+.paging { color: #616161; position: absolute; left: 0; right: 0; bottom: 18px; /* 24px - 6px */ text-align: center; width: 100%; }
+.paging b { background: #616161; display: inline-block; margin: 0 1px 0; height: 6px; border-radius: 6px; width: 6px; text-indent: 100%; overflow: hidden; white-space: nowrap; }
+.paging .act { background: #f1f1f1; }
+
+.menus { -webkit-animation: fromTop 600ms ease 80ms; -moz-animation: fromTop 600ms ease 80ms; -ms-animation: fromTop 600ms ease 80ms; -o-animation: fromTop 600ms ease 80ms; animation: fromTop 600ms ease 80ms; }
+
+.menus { -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; }
+
+@-webkit-keyframes fromTop { 0% { opacity: 0; -webkit-transform: translateY(-100%); }
+  40% { opacity: 0; }
+  100% { opacity: 1; -webkit-transform: translateY(0); } }

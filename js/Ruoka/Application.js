@@ -23,11 +23,11 @@
 
                 render.done(function () {
                     if ( Modernizr.csstransforms ) {
-                        Ruoka.TouchUI.init( this.container.find('.menus') );
+                        Ruoka.TouchUI.init( this.container.find('.menus'), this.container.find('.paging') );
                     }
                 }.bind(this))
                 .fail(function () {
-                    // TODO: this
+                    // TODO: show a notification up top saying that we could not fetch information
                 });
 
             }.bind(this));
@@ -40,6 +40,8 @@
             this.container.find('#boot').fadeOut('slow', function () {
                 var renderedTemplate = this.template.render(this.model).children();
                 this.container.html(renderedTemplate);
+
+                this.setFoodsHeights();
 
                 defer.resolve();
             }.bind(this));
@@ -63,6 +65,29 @@
             });
             self.template.find('.menus > ul').append(menus);
             $(menus[0]).show();
+
+            this.setPaging(menus.length);
+        },
+
+        setFoodsHeights: function() {
+            var totalHeight = this.container.find('.menu-wrap').height();
+            var nameHeight = this.container.find('.name').height();
+            var menuHeight = totalHeight - nameHeight;
+
+            this.container.find('.foods').height(menuHeight);
+        },
+
+        setPaging: function (count) {
+            var paging = this.template.find('.paging');
+            var page = paging.children().first().detach();
+
+            var pages = [];
+            for (var i = 0; i < count; i++) {
+                var newPage = page.clone();
+                pages.push(newPage);
+            }
+
+            paging.empty().append(pages);
         }
     };
 

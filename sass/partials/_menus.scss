@@ -1,22 +1,73 @@
 
 /* 3.MENUS
 ----------------------------------------------------------------------------- */
+.menus {
+    box-sizing: border-box;
+    height:100%;
+    padding-bottom:48px;
+
+    > ul {
+        height:100%;
+    }
+}
 .menu {
+    display:inline-block !important;
     padding:10px;
 }
 .menu-wrap {
     background:#f67280;
-    border:2px solid #ff939e;
-    font-size:14px;
-    padding:10px;
+    background:#449c55;
+    // border:1px solid #ff939e;
+    border:1px solid rgba(255,255,255, 0.2);
+    padding-bottom:21px;
+    position:relative;
     border-radius:12px;
 
-    h2 {
-        font-size:14px;
+    .name {
+        font-size:16px;
+        line-height:46px;
         text-align:center;
     }
+}
+.menu, .menu-wrap {
+    box-sizing: border-box;
+    height:100%;
 }
 
 .settings {
     display:none;
+}
+
+.foods {
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
+
+    li {
+        line-height:22px;
+        padding:12px 10px 12px 9%;
+        position: relative;
+    }
+    li:last-child {
+        border:0;
+        box-shadow:none;
+        padding-bottom:0;
+    }
+    li::before {
+        background-color: #f1f1f1;
+        content: "";
+        height: 6px;
+        margin-top: 0.666em;
+        margin-right: 0.666em;
+        position: absolute;
+        right: 91%;
+        width: 6px;
+        border-radius: 14px;
+    }
+}
+
+.menu-wrap .name, .foods li {
+    // border-bottom:1px solid #dd6673;
+    border-bottom:1px solid rgba(0,0,0, 0.1);
+    // box-shadow:0 1px 0 #f88995;
+    box-shadow:0 1px 0 rgba(255,255,255, 0.2);
 }

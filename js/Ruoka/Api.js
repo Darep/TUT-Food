@@ -5,8 +5,8 @@
     Ruoka.Api = {
         fetchMenus: function () {
             return $.ajax({
-                url: 'api.php?refresh',
-                type: 'GET'
+                type: 'GET',
+                url: 'api.php?refresh'
             });
         }
     };

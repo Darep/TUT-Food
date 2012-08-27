@@ -1,0 +1,26 @@
+.paging {
+    color:#616161;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:18px; /* 24px - 6px */
+    text-align:center;
+    width:100%;
+
+    b {
+        background:#616161;
+        display:inline-block;
+        margin:0 1px 0;
+        height:6px;
+        border-radius:6px;
+        width:6px;
+
+        text-indent:100%;
+        overflow:hidden;
+        white-space:nowrap;
+    }
+
+    .act {
+        background:#f1f1f1;
+    }
+}
