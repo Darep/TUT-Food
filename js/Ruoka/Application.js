@@ -59,11 +59,9 @@
                     model: model
                 });
                 var menuEl = menu.render().el;
-                menuEl.hide();
                 menus.push(menuEl);
             });
             self.template.find('.menus > ul').append(menus);
-            $(menus[0]).show();
 
             this.setPaging(menus.length);
         },

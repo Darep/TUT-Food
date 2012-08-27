@@ -125,7 +125,7 @@ header { display: none; }
 .menu-wrap .name, .foods li { border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2); }
 
 .paging { color: #616161; position: absolute; left: 0; right: 0; bottom: 18px; /* 24px - 6px */ text-align: center; width: 100%; }
-.paging b { background: #616161; display: inline-block; margin: 0 1px 0; height: 6px; border-radius: 6px; width: 6px; text-indent: 100%; overflow: hidden; white-space: nowrap; }
+.paging b { background: #616161; display: inline-block; margin: 0 4px 0; height: 6px; border-radius: 6px; width: 6px; text-indent: 100%; overflow: hidden; white-space: nowrap; }
 .paging .act { background: #f1f1f1; }
 
 .menus { -webkit-animation: fromTop 600ms ease 80ms; -moz-animation: fromTop 600ms ease 80ms; -ms-animation: fromTop 600ms ease 80ms; -o-animation: fromTop 600ms ease 80ms; animation: fromTop 600ms ease 80ms; }

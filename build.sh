@@ -6,13 +6,15 @@ cd ..
 
 rm -rf _dist
 
-mkdir _dist
-mkdir _dist/js
+mkdir -p _dist/js/lib
 
 cp -a css _dist/
 cp -a img _dist/
 cp -a templates _dist/
 cp -a views _dist/
+
+cp js/lib/modernizr.custom.34167.js _dist/js/lib/modernizr.custom.34167.js
+cp js/cache.js _dist/js/
 cp js/main.* _dist/js/
 cp cache.manifest _dist/
 cp api.php _dist/
