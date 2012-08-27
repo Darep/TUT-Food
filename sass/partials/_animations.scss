@@ -1,0 +1,20 @@
+.menus {
+    -webkit-animation:fromTop 600ms ease 80ms;
+    -moz-animation:fromTop 600ms ease 80ms;
+    -ms-animation:fromTop 600ms ease 80ms;
+    -o-animation:fromTop 600ms ease 80ms;
+    animation:fromTop 600ms ease 80ms;
+}
+.menus {
+    -webkit-animation-fill-mode:both;
+    -moz-animation-fill-mode:both;
+    -ms-animation-fill-mode:both;
+    -o-animation-fill-mode:both;
+    animation-fill-mode:both;
+}
+
+@-webkit-keyframes fromTop {
+    0% { opacity:0; -webkit-transform: translateY(-100%); }
+    40% { opacity:0; }
+    100% { opacity:1; -webkit-transform: translateY(0); }
+}
