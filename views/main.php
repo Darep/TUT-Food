@@ -65,7 +65,7 @@
 
     <script type="text/javascript" src="js/lib/modernizr.custom.34167.js"></script>
 </head>
-<body onorientationchange="Ruoka.UI.updateOrientation()">
+<body>
 
     <noscript><strong>Please</strong> enable JavaScript to use this app!</noscript>
 
@@ -83,7 +83,8 @@
 
     </div>
 
-    <?php if (DEBUG) : ?>
+    <script type="text/javascript" src="js/cache.js"></script>
+<?php if (DEBUG) : ?>
     <script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="js/lib/transparency.min.js"></script>
     <script type="text/javascript" src="js/lib/date.format.js"></script>
@@ -92,9 +93,9 @@
     <script type="text/javascript" src="js/Ruoka/Api.js"></script>
     <script type="text/javascript" src="js/Ruoka/TouchUI.js"></script>
     <script type="text/javascript" src="js/Ruoka/Menu.js"></script>
-    <?php else : ?>
+<?php else : ?>
     <script type="text/javascript" src="js/main.min.js"></script>
-    <?php endif; ?>
+<?php endif; ?>
 
     <script type="text/javascript">
         Ruoka.Application.init();
