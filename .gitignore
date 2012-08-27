@@ -1,7 +1,9 @@
+.DS_Store
+._*
 .sass-cache
 .bin
 /_dist
-/service/
+/service
 
 /.buildpath
 /.project
