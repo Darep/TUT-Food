@@ -9,7 +9,16 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['../js/lib/jquery-1.8.0.min.js', '../js/lib/date.format.js', '../js/lib/transparency.min.js', '../js/Ruoka/*.js'],
+        src: [
+          '../js/lib/jquery-1.8.0.min.js',
+          '../js/lib/date.format.js',
+          '../js/lib/transparency.min.js',
+          '../js/lib/swipe.min.js',
+          '../js/Ruoka/Application.js',
+          '../js/Ruoka/Api.js',
+          '../js/Ruoka/TouchUI.js',
+          '../js/Ruoka/Menu.js'
+        ],
         dest: '../js/main.js'
       }
     },
