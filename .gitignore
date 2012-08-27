@@ -1,6 +1,7 @@
 .sass-cache
 .bin
 /_dist
+/service/
 
 /.buildpath
 /.project
