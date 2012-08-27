@@ -1,5 +1,5 @@
 
-(function (Ruoka, $, document, window, undefined) {
+;(function (Ruoka, $, document, window, undefined) {
 
     var templateBase = $('#templates .tmpl-menu').detach().removeClass('tmpl-menu');
 

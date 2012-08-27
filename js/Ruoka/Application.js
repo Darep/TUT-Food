@@ -1,9 +1,8 @@
+
 /*!
  * TUT-Food main application logic
  */
-
-(function (Ruoka, $, document, window, undefined) {
-    Ruoka.Application = Ruoka.Application || {};
+;(function (Ruoka, $, document, window, undefined) {
 
     Ruoka.Application = {
         container: null,
@@ -92,9 +91,3 @@
     };
 
 }(window.Ruoka = window.Ruoka || {}, jQuery, document, window));
-
-
-// Return the template
-function getTemplate(sel) {
-    return $($('#templates ' + sel).html());
-}

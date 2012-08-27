@@ -1,5 +1,5 @@
 
-(function (Ruoka, $, document, window, undefined) {
+;(function (Ruoka, $, document, window, undefined) {
 
     var START_INDEX = 0;
     var TouchUI = Ruoka.TouchUI || {};

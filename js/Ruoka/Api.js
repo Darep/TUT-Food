@@ -1,5 +1,5 @@
 
-(function (Ruoka, $, document, window, undefined) {
+;(function (Ruoka, $, document, window, undefined) {
     Ruoka.Api = Ruoka.Api || {};
 
     Ruoka.Api = {
